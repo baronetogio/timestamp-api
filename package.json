@@ -1,0 +1,23 @@
+{
+  "name": "timestamp-api",
+  "version": "1.0.0",
+  "description": "A practice timestamp api exercise by freecodecamp.org",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Giovanni",
+  "keywords": [
+    "node",
+    "express",
+    "freecodecamp"
+  ],
+  "type": "module",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1"
+  }
+}
