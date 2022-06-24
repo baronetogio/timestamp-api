@@ -16,11 +16,19 @@ router
 router
     .route('/:date')
     .get((req, res, next) => {
-        const inputDate = `${req.params.date}T00:00:00Z`
-        req.time = new Date(inputDate)
+        if (req.params.date.length === 13) {
+            req.info = parseInt(req.params.date)
+            next()
+        }
+        req.info = `${req.params.date}T00:00:00Z`
         next()
-    }, (req, res) => {
-        res.json({ 'unix': req.time.getTime(), 'utc': req.time.toUTCString() });
+    },(req, res) => {
+        const date = new Date(req.info)
+        if (date.toString() === 'Invalid Date') {
+            res.json({ error: date.toString() })
+        } else {
+            res.json({ 'unix': date.getTime(), 'utc': date.toUTCString() });
+        }
     });
 
 export default router;
